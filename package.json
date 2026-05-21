@@ -1,0 +1,9 @@
+{
+  "name": "all-things-good",
+  "version": "1.0.0",
+  "description": "All Things Good — a non-profit sharing uplifting stories.",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static site — no build step required.'"
+  }
+}
