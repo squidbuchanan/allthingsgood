@@ -146,7 +146,7 @@
   .hero-headline {
     font-family: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
     font-size: clamp(56px, 9vw, 140px);
-    line-height: 0.92;
+    line-height: 0.86;
     letter-spacing: -0.045em;
     font-weight: 700;
     margin: 28px 0 32px;
@@ -173,23 +173,111 @@
     flex-wrap: wrap;
   }
 
-  /* Floating smile mark in hero (top-right, well clear of headline + buttons) */
+  /* Floating photo collage in hero — three image slots, playful rotation */
+  .hero-photos {
+    position: absolute;
+    right: 16px;
+    top: 56px;
+    width: 400px;
+    height: 480px;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  .hero-photos .hp {
+    position: absolute;
+    display: block;
+    box-shadow: 0 24px 48px -20px rgba(11, 14, 26, 0.25);
+    transition: transform .35s ease;
+  }
+  .hero-photos .hp:hover { z-index: 3; }
+  .hero-photos .hp-1 { width: 240px; height: 300px; top: 0; right: 40px;
+    transform: rotate(-3deg); }
+  .hero-photos .hp-1:hover { transform: rotate(-3deg) translateY(-4px); }
+  .hero-photos .hp-2 { width: 180px; height: 220px; top: 230px; left: 10px;
+    transform: rotate(5deg); }
+  .hero-photos .hp-2:hover { transform: rotate(5deg) translateY(-4px); }
+  .hero-photos .hp-3 { width: 130px; height: 130px; top: 340px; right: 30px;
+    transform: rotate(-10deg);
+    box-shadow: 0 16px 32px -12px rgba(12, 71, 255, 0.35); }
+  .hero-photos .hp-3:hover { transform: rotate(-10deg) translateY(-4px); }
+
+
+  /* Hero collage photos */
+  .hero-photos .hp,
+  .hero-photos-mount-mobile .hp {
+    object-fit: cover;
+    display: block;
+  }
+  .hero-photos .hp-1, .hero-photos-mount-mobile .hp-1 { border-radius: 18px; }
+  .hero-photos .hp-2, .hero-photos-mount-mobile .hp-2 { border-radius: 18px; }
+  .hero-photos .hp-3, .hero-photos-mount-mobile .hp-3 { border-radius: 50%; }
+
+  /* The little smile mark tucked behind the photos */
   .hero-icon {
     position: absolute;
-    right: 32px;
-    top: 64px;
-    width: 220px;
+    right: 280px;
+    top: 380px;
+    width: 86px;
     pointer-events: none;
-    opacity: 0.95;
-    transform: rotate(8deg);
+    opacity: 1;
+    transform: rotate(-8deg);
+    z-index: 1;
   }
   .hero-icon svg { width: 100%; height: auto; display: block; }
   @media (max-width: 1200px) {
-    .hero-icon { width: 160px; right: 24px; top: 40px; }
-  }
-  @media (max-width: 720px) {
+    .hero-photos { width: 320px; height: 380px; top: 40px; right: 8px; }
+    .hero-photos .hp-1 { width: 190px; height: 240px; right: 30px; }
+    .hero-photos .hp-2 { width: 150px; height: 180px; top: 180px; left: 0; }
+    .hero-photos .hp-3 { width: 110px; height: 110px; top: 270px; right: 20px; }
     .hero-icon { display: none; }
   }
+  @media (max-width: 980px) {
+    .hero .hero-photos { display: none; }
+  }
+
+  /* Mobile photo mount — the same .hero-photos node is moved here by JS
+     when the viewport drops below 980px, and shows under the CTA. */
+  .hero-photos-mount-mobile { display: none; }
+  @media (max-width: 980px) {
+    .hero-photos-mount-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 24px 88px;
+      margin-top: -48px;     /* tuck a little under the CTA card */
+    }
+    .hero-photos-mount-mobile .hero-photos {
+      position: static;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      width: auto;
+      height: auto;
+    }
+    .hero-photos-mount-mobile .hp {
+      position: static;
+    }
+    .hero-photos-mount-mobile .hp-1 { width: 150px; height: 190px; transform: rotate(-4deg); }
+    .hero-photos-mount-mobile .hp-2 { width: 130px; height: 160px; transform: rotate(5deg); }
+    .hero-photos-mount-mobile .hp-3 { width: 110px; height: 110px; transform: rotate(-8deg); }
+    .hero-photos-mount-mobile .hp-1:hover { transform: rotate(-4deg) translateY(-4px); }
+    .hero-photos-mount-mobile .hp-2:hover { transform: rotate(5deg)  translateY(-4px); }
+    .hero-photos-mount-mobile .hp-3:hover { transform: rotate(-8deg) translateY(-4px); }
+  }
+  @media (max-width: 420px) {
+    .hero-photos-mount-mobile .hp-1 { width: 120px; height: 150px; }
+    .hero-photos-mount-mobile .hp-2 { width: 100px; height: 130px; }
+    .hero-photos-mount-mobile .hp-3 { width: 90px;  height: 90px; }
+  }
+
+  /* image-slot empty state — let the component handle its own bg/border,
+     just match the shape on the host so the placeholder hover state is round too */
+  image-slot { background: transparent; color: var(--blue); }
+  image-slot[shape="circle"]  { border-radius: 50%; }
+  image-slot[shape="rounded"] { border-radius: 18px; }
+  image-slot[shape="pill"]    { border-radius: 999px; }
 
   /* Stats strip */
   .stats {
@@ -804,6 +892,13 @@
       <a class="btn btn-ghost" href="#story">Our story</a>
     </div>
 
+    <!-- Photo collage — user drops in real smiles -->
+    <div class="hero-photos">
+      <img class="hp hp-1" src="assets/photos/hero-photo-1.webp" alt="A smiling moment" />
+      <img class="hp hp-2" src="assets/photos/hero-photo-2.webp" alt="A happy face" />
+      <img class="hp hp-3" src="assets/photos/hero-photo-3.webp" alt="A bright smile" />
+    </div>
+
     <!-- Floating smile mark -->
     <div class="hero-icon" aria-hidden="true">
       <svg viewBox="0 0 113 104">
@@ -917,6 +1012,8 @@
     </div>
   </div>
 </section>
+
+
 
 <!-- ===========================  PILLARS / MISSION  =========================== -->
 <section id="mission">
@@ -1058,6 +1155,16 @@
   </div>
 </section>
 
+<!-- Mobile-only mount: same image-slot ids as the hero collage, so dropping
+     a photo on one view also fills the other view automatically. -->
+<div class="hero-photos-mount-mobile" aria-hidden="true">
+  <div class="hero-photos">
+    <img class="hp hp-1" src="assets/photos/hero-photo-1.webp" alt="A smiling moment" />
+    <img class="hp hp-2" src="assets/photos/hero-photo-2.webp" alt="A happy face" />
+    <img class="hp hp-3" src="assets/photos/hero-photo-3.webp" alt="A bright smile" />
+  </div>
+</div>
+
 <!-- ===========================  FOOTER  =========================== -->
 <footer>
   <div class="wrap">
@@ -1112,6 +1219,7 @@
     }
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
 </script>
 </body>
 </html>
