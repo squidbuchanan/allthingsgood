@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>All Things Good — A little more good, every day.</title>
+<meta name="description" content="All Things Good is a non-profit on a mission to fill the internet with stories that remind us how good people can be. Following 5M+ people monthly since 2019." />
+<link rel="icon" type="image/svg+xml" href="assets/atg-icon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --blue: #0C47FF;
+    --blue-deep: #0935C7;
+    --cream: #FFF9EC;
+    --cream-warm: #FBEFD1;
+    --ink: #0B0E1A;
+    --ink-soft: #3A3D49;
+    --line: rgba(11, 14, 26, 0.12);
+    --line-strong: rgba(11, 14, 26, 0.28);
+    --radius: 22px;
+    --radius-lg: 32px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+  .mono  { font-family: "DM Mono", ui-monospace, monospace; font-weight: 400; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* =========================  NAV  ========================= */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+  }
+  nav.top .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 92px;
+    gap: 24px;
+  }
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .logo-mark img.full-logo {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+  footer .logo-mark img.full-logo {
+    height: 64px;
+  }
+  nav .links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 15px;
+  }
+  nav .links a { color: var(--ink-soft); transition: color .18s; }
+  nav .links a:hover { color: var(--blue); }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue);
+    color: var(--cream);
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid var(--blue);
+    cursor: pointer;
+    transition: transform .15s ease, background .15s;
+  }
+  .btn, nav .links a.btn { color: #ffffff; }
+  .btn:hover { background: var(--blue-deep); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+  .btn-ghost:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+  /* =========================  HERO  ========================= */
+  .hero {
+    padding: 80px 0 96px;
+    position: relative;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(12, 71, 255, 0.08);
+    color: var(--blue);
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .eyebrow .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 0 0 rgba(12, 71, 255, 0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(12, 71, 255, 0.55); }
+    70%  { box-shadow: 0 0 0 12px rgba(12, 71, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(12, 71, 255, 0); }
+  }
+
+  .hero-headline {
+    font-family: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
+    font-size: clamp(56px, 9vw, 140px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+    margin: 28px 0 32px;
+    max-width: 14ch;
+    font-variation-settings: "opsz" 96;
+  }
+  .hero-headline .em {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+  }
+  .hero-sub {
+    max-width: 56ch;
+    font-size: clamp(18px, 1.6vw, 22px);
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .hero-cta-row {
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* Floating smile mark in hero (top-right, well clear of headline + buttons) */
+  .hero-icon {
+    position: absolute;
+    right: 32px;
+    top: 64px;
+    width: 220px;
+    pointer-events: none;
+    opacity: 0.95;
+    transform: rotate(8deg);
+  }
+  .hero-icon svg { width: 100%; height: auto; display: block; }
+  @media (max-width: 1200px) {
+    .hero-icon { width: 160px; right: 24px; top: 40px; }
+  }
+  @media (max-width: 720px) {
+    .hero-icon { display: none; }
+  }
+
+  /* Stats strip */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 88px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat {
+    padding: 28px 24px;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat .num .unit {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    color: var(--blue);
+    font-weight: 400;
+  }
+  .stat .label {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  }
+
+  /* =========================  MARQUEE  ========================= */
+  .marquee {
+    background: var(--blue);
+    color: var(--cream);
+    padding: 28px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--blue-deep);
+    border-bottom: 1px solid var(--blue-deep);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    animation: scroll 40s linear infinite;
+    width: max-content;
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    align-items: center;
+  }
+  .marquee-track .em {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cream-warm);
+  }
+  .marquee .star {
+    width: 28px; height: 28px;
+    color: var(--cream-warm);
+    flex-shrink: 0;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* =========================  STORY  ========================= */
+  .section { padding: 120px 0; position: relative; }
+  .section-label {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: "";
+    width: 28px; height: 1px; background: var(--blue);
+  }
+  .section-title {
+    font-family: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    margin: 0 0 24px;
+    max-width: 18ch;
+    font-variation-settings: "opsz" 72;
+  }
+  .section-title .em {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blue);
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .story-grid { grid-template-columns: 1fr; gap: 56px; }
+  }
+  .story-copy p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 0 18px;
+  }
+  .story-copy p strong { color: var(--ink); font-weight: 600; }
+  .pull {
+    border-left: 3px solid var(--blue);
+    padding: 8px 0 8px 20px;
+    margin: 32px 0;
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 36px;
+  }
+  /* The vertical rail — center at x = 12px */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue) 0%, var(--blue) 70%, rgba(12,71,255,0.25) 100%);
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    display: block;
+    padding: 0 0 40px 0;
+    border: none;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  /* The node sits ON the rail — center matches rail center (x = 12px) */
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 4px solid var(--blue);
+    box-sizing: border-box;
+    z-index: 1;
+    transition: transform .2s ease;
+  }
+  .tl-item:hover::before { transform: scale(1.15); }
+  .tl-year {
+    display: inline-block;
+    font-family: "DM Mono", monospace;
+    color: var(--blue);
+    background: rgba(12, 71, 255, 0.08);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .tl-body h4 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .tl-body p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* =========================  PILLARS  ========================= */
+  .pillars-section {
+    background: var(--blue);
+    color: var(--cream);
+    border-radius: var(--radius-lg);
+    padding: 88px 56px;
+    margin: 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillars-section .section-label { color: var(--cream-warm); }
+  .pillars-section .section-label::before { background: var(--cream-warm); }
+  .pillars-section .section-title { color: var(--cream); }
+  .pillars-section .section-title .em { color: var(--cream-warm); }
+  .pillars-deck {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+  @media (max-width: 900px) { .pillars-deck { grid-template-columns: 1fr; } }
+  .pillar {
+    border: 1px solid rgba(255,249,236,0.22);
+    background: rgba(255,249,236,0.04);
+    border-radius: 20px;
+    padding: 32px;
+    transition: background .2s, transform .2s;
+  }
+  .pillar:hover { background: rgba(255, 249, 236, 0.10); transform: translateY(-2px); }
+  .pillar .num {
+    font-family: "DM Mono", monospace;
+    font-size: 13px;
+    color: var(--cream-warm);
+    margin-bottom: 40px;
+  }
+  .pillar h3 {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .pillar h3 .em {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    color: var(--cream-warm);
+    font-weight: 400;
+  }
+  .pillar p {
+    margin: 0;
+    color: rgba(255, 249, 236, 0.7);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  /* =========================  INSTAGRAM FEED  ========================= */
+  .feed-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+  .feed-head .right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 1100px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 720px)  { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* The plugin will replace .ig-feed contents with real posts at deploy time */
+  .ig-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--cream-warm);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .ig-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgba(12, 71, 255, 0.35); }
+  .ig-card .ph {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 18px;
+    text-align: center;
+    color: var(--ink-soft);
+  }
+  .ig-card .ph .quote {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.25;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .ig-card .ph .meta {
+    margin-top: 14px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .ig-card .ig-corner {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 22px; height: 22px;
+    color: var(--ink);
+    opacity: 0.6;
+  }
+  .ig-card.alt-1 { background: var(--blue); color: var(--cream); }
+  .ig-card.alt-1 .ph .quote { color: var(--cream); }
+  .ig-card.alt-1 .ph .meta  { color: var(--cream-warm); }
+  .ig-card.alt-1 .ig-corner { color: var(--cream); opacity: 0.85; }
+  .ig-card.alt-2 { background: var(--cream); }
+  .ig-card.alt-3 { background: var(--ink); color: var(--cream); }
+  .ig-card.alt-3 .ph .quote { color: var(--cream); }
+  .ig-card.alt-3 .ph .meta  { color: var(--cream-warm); }
+  .ig-card.alt-3 .ig-corner { color: var(--cream); opacity: 0.85; }
+
+  .feed-note {
+    margin-top: 32px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: rgba(12, 71, 255, 0.05);
+    border: 1px dashed rgba(12, 71, 255, 0.35);
+    color: var(--blue);
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* =========================  CTA / NEWSLETTER  ========================= */
+  .cta {
+    background: var(--blue);
+    color: var(--cream);
+    border-radius: var(--radius-lg);
+    margin: 0 32px 120px;
+    padding: 120px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 520px;
+  }
+  .cta > .wrap { width: 100%; }
+  .cta .section-title { color: var(--cream); margin: 0 auto 16px; max-width: 18ch; }
+  .cta .section-title .em { color: var(--cream-warm); }
+  .cta p {
+    color: rgba(255, 249, 236, 0.8);
+    max-width: 52ch;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+  .cta .row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .cta .btn-cream {
+    background: var(--cream);
+    color: var(--blue);
+    border-color: var(--cream);
+  }
+  .cta .btn-cream:hover { background: var(--cream-warm); border-color: var(--cream-warm); color: var(--blue-deep); }
+  .cta .btn-outline {
+    background: transparent;
+    border-color: rgba(255,249,236,0.45);
+    color: var(--cream);
+  }
+  .cta .btn-outline:hover { background: rgba(255,249,236,0.1); border-color: var(--cream); }
+  .cta .float-icon {
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 280px;
+    opacity: 0.12;
+    transform: rotate(-12deg);
+  }
+  .cta .float-icon svg { width: 100%; height: 100%; }
+  .cta .float-icon-2 {
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px;
+    opacity: 0.12;
+    transform: rotate(20deg);
+  }
+  .cta .float-icon-2 svg { width: 100%; height: 100%; }
+
+  /* =========================  FOOTER  ========================= */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 56px 0 36px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+  .foot-grid h5 {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+    font-weight: 500;
+  }
+  .foot-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .foot-grid a { color: var(--ink); transition: color .15s; }
+  .foot-grid a:hover { color: var(--blue); }
+  .foot-blurb p {
+    margin: 16px 0 0;
+    max-width: 32ch;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Subtle scroll-fade entrance */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .fade-in.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ===== Logo SVG color override ===== */
+  .logo-svg-blue path { fill: var(--blue); }
+  .logo-svg-cream path { fill: var(--cream); }
+
+  /* Selection */
+  ::selection { background: var(--blue); color: var(--cream); }
+</style>
+</head>
+<body>
+
+<!-- ===========================  NAV  =========================== -->
+<nav class="top">
+  <div class="wrap">
+    <a class="logo-mark" href="#top" aria-label="All Things Good">
+      <img class="full-logo" src="assets/atg-logo-blue.png" alt="All Things Good" />
+    </a>
+    <div class="links">
+      <a href="#story">Story</a>
+      <a href="#mission">Mission</a>
+      <a href="#feed">Feed</a>
+      <a class="btn" href="https://instagram.com" target="_blank" rel="noopener">Follow @allthingsgood</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===========================  HERO  =========================== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span>Sharing good news since 2019</span>
+
+    <h1 class="hero-headline">
+      A little more <span class="em">good</span>,<br />every day.
+    </h1>
+
+    <p class="hero-sub">
+      All Things Good is a non-profit on a mission to fill your feed with the kind of stories that remind us how good people can be. Five million of you tune in each month. We're just getting started.
+    </p>
+
+    <div class="hero-cta-row">
+      <a class="btn" href="https://instagram.com" target="_blank" rel="noopener">
+        Follow on Instagram
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#story">Our story</a>
+    </div>
+
+    <!-- Floating smile mark -->
+    <div class="hero-icon" aria-hidden="true">
+      <svg viewBox="0 0 113 104">
+        <g fill="#0C47FF" fill-rule="nonzero">
+          <path d="M11.3235888,59.7185548 L25.2449276,65.6278125 C21.800024,73.7434969 25.5864399,83.1152052 33.7021243,86.5601089 C41.6778831,89.9456176 50.8667281,86.347013 54.4509873,78.5188133 L54.6344207,78.1029122 L68.5557595,84.0121699 C61.8472629,99.8163975 43.5970941,107.189944 27.7928666,100.481448 C12.1623119,93.8466709 4.77816626,75.9224912 11.1075236,60.2404408 L11.3235888,59.7185548 Z"/>
+          <path d="M84.022746,24.9323745 C88.6985999,24.9323745 92.7592099,25.7576186 96.204576,27.4081068 C99.649942,29.0585949 102.510826,31.1828344 104.787229,33.780825 C107.063631,36.3788157 108.770933,39.2824523 109.909135,42.4917349 C111.047336,45.7010174 111.616437,48.8644531 111.616437,51.9820419 C111.616437,55.0996307 111.047336,58.2630664 109.909135,61.4723489 C108.770933,64.6816315 107.063631,67.5852681 104.787229,70.1832588 C102.510826,72.7812494 99.649942,74.9054889 96.204576,76.555977 C92.7592099,78.2064652 88.6985999,79.0317093 84.022746,79.0317093 C79.3468921,79.0317093 75.2862821,78.2064652 71.840916,76.555977 C68.39555,74.9054889 65.5346657,72.7812494 63.2582631,70.1832588 C60.9818605,67.5852681 59.2745586,64.6816315 58.1363573,61.4723489 C56.998156,58.2630664 56.4290554,55.0996307 56.4290554,51.9820419 C56.4290554,48.8644531 56.998156,45.7010174 58.1363573,42.4917349 C59.2745586,39.2824523 60.9818605,36.3788157 63.2582631,33.780825 C65.5346657,31.1828344 68.39555,29.0585949 71.840916,27.4081068 C75.2862821,25.7576186 79.3468921,24.9323745 84.022746,24.9323745 Z M84.022746,39.1449116 C82.3615874,39.1449116 80.7927153,39.4658399 79.3161299,40.1076964 C77.8395444,40.7495529 76.5321511,41.6359262 75.3939498,42.7668162 C74.2557485,43.8977063 73.3636448,45.2578308 72.7176386,46.8471898 C72.0716325,48.4365488 71.7486294,50.1481661 71.7486294,51.9820419 C71.7486294,53.8159177 72.0716325,55.527535 72.7176386,57.116894 C73.3636448,58.706253 74.2557485,60.0663775 75.3939498,61.1972676 C76.5321511,62.3281576 77.8395444,63.2145309 79.3161299,63.8563874 C80.7927153,64.4982439 82.3615874,64.8191722 84.022746,64.8191722 C85.6839047,64.8191722 87.2527768,64.4982439 88.7293622,63.8563874 C90.2059477,63.2145309 91.5133409,62.3281576 92.6515422,61.1972676 C93.7897435,60.0663775 94.6818472,58.706253 95.3278534,57.116894 C95.9738595,55.527535 96.2968626,53.8159177 96.2968626,51.9820419 C96.2968626,50.1481661 95.9738595,48.4365488 95.3278534,46.8471898 C94.6818472,45.2578308 93.7897435,43.8977063 92.6515422,42.7668162 C91.5133409,41.6359262 90.2059477,40.7495529 88.7293622,40.1076964 C87.2527768,39.4658399 85.6839047,39.1449116 84.022746,39.1449116 Z"/>
+          <path d="M28.9974678,0.0149313636 C33.6733218,0.0149313636 37.7339317,0.840175427 41.1792978,2.49066358 C44.6246639,4.14115174 47.4855481,6.26539124 49.7619508,8.86338181 C52.0383534,11.4613724 53.7456553,14.3650091 54.8838565,17.5742916 C56.0220578,20.7835742 56.5911584,23.9470099 56.5911584,27.0645987 C56.5911584,30.1821875 56.0220578,33.3456232 54.8838565,36.5549057 C53.7456553,39.7641883 52.0383534,42.6678249 49.7619508,45.2658156 C47.4855481,47.8638062 44.6246639,49.9880457 41.1792978,51.6385338 C37.7339317,53.288022 33.6733218,54.1142661 28.9974678,54.1142661 C24.321614,54.1142661 20.260804,53.288022 16.8154379,51.6385338 C13.3700718,49.9880457 10.5091874,47.8638062 8.23278484,45.2658156 C5.95638222,42.6678249 4.2490803,39.7641883 3.11087901,36.5549057 C1.97267771,33.3456232 1.40347713,30.1821875 1.40347713,27.0645987 C1.40347713,23.9470099 1.97267771,20.7835742 3.11087901,17.5742916 C4.2490803,14.3650091 5.95638222,11.4613724 8.23278484,8.86338181 C10.5091874,6.26539124 13.3700718,4.14115174 16.8154379,2.49066358 C20.260804,0.840175427 24.321614,0.0149313636 28.9974678,0.0149313636 Z M28.9974678,14.2274684 C27.3363092,14.2274684 25.7674371,14.5483967 24.2908516,15.1902532 C22.8142662,15.8321097 21.5068729,16.718483 20.3686716,17.849373 C19.2304703,18.9802631 18.3383665,20.3403876 17.6923604,21.9297466 C17.0463542,23.5191056 16.7233512,25.2307229 16.7233512,27.0645987 C16.7233512,28.8984745 17.0463542,30.6100918 17.6923604,32.1994508 C18.3383665,33.7888098 19.2304703,35.1489343 20.3686716,36.2798244 C21.5068729,37.4107144 22.8142662,38.2970877 24.2908516,38.9389442 C25.7674371,39.5808007 27.3363092,39.901729 28.9974678,39.901729 C30.6586265,39.901729 32.2274986,39.5808007 33.704084,38.9389442 C35.1806694,38.2970877 36.4880627,37.4107144 37.626264,36.2798244 C38.7644653,35.1489343 39.656569,33.7888098 40.3025752,32.1994508 C40.9485814,30.6100918 41.2715844,28.8984745 41.2715844,27.0645987 C41.2715844,25.2307229 40.9485814,23.5191056 40.3025752,21.9297466 C39.656569,20.3403876 38.7644653,18.9802631 37.626264,17.849373 C36.4880627,16.718483 35.1806694,15.8321097 33.704084,15.1902532 C32.2274986,14.5483967 30.6586265,14.2274684 28.9974678,14.2274684 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats">
+      <div class="stat">
+        <div class="num">414<span class="unit">k</span></div>
+        <div class="label">Followers</div>
+      </div>
+      <div class="stat">
+        <div class="num">5<span class="unit">m+</span></div>
+        <div class="label">Monthly impressions</div>
+      </div>
+      <div class="stat">
+        <div class="num">2019</div>
+        <div class="label">On a mission since</div>
+      </div>
+      <div class="stat">
+        <div class="num">501<span class="unit">(c)(3)</span></div>
+        <div class="label">Non-profit foundation</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===========================  MARQUEE  =========================== -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Good news.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span><span class="em">Good</span> people.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span>Good moments.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span><span class="em">Good</span> stories.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span>Good vibes.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <!-- repeat for seamless loop -->
+    <span>Good news.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span><span class="em">Good</span> people.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span>Good moments.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span><span class="em">Good</span> stories.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+    <span>Good vibes.</span>
+    <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+  </div>
+</section>
+
+<!-- ===========================  STORY  =========================== -->
+<section class="section" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-copy fade-in">
+        <div class="section-label">Our story</div>
+        <h2 class="section-title">It started with one simple <span class="em">idea.</span></h2>
+        <p>
+          In 2019, there was a lot of bad on the internet — and not nearly enough good. So we started sharing the other side: the kid lemonade-stand stories, the strangers helping strangers, the small wins that don't trend but matter.
+        </p>
+        <div class="pull">
+          “The good stuff is happening all around us. We just decided to point a camera at it.”
+        </div>
+        <p>
+          What began as a quiet feed of feel-good moments has grown into a community of over <strong>five million people</strong> who show up every month for a daily dose of optimism. We're a registered <strong>501(c)(3) non-profit</strong> — every share, every donation, every minute of attention helps fund the work of telling more of these stories.
+        </p>
+        <p>
+          We don't think good news is naive. We think it's <em>necessary</em>.
+        </p>
+      </div>
+      <div class="timeline fade-in">
+        <div class="tl-item">
+          <div class="tl-year">2019</div>
+          <div class="tl-body">
+            <h4>The first post</h4>
+            <p>A scrappy Instagram account dedicated to a simple thesis: the good stuff is worth amplifying.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2021</div>
+          <div class="tl-body">
+            <h4>100K and counting</h4>
+            <p>The community crossed one hundred thousand followers, with stories reaching every U.S. state and 90+ countries.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2023</div>
+          <div class="tl-body">
+            <h4>Foundation status</h4>
+            <p>Officially became a 501(c)(3) non-profit — making it easier to support partner causes and community programs.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2025</div>
+          <div class="tl-body">
+            <h4>5M monthly</h4>
+            <p>Five million people now tune in each month. The mission hasn't changed: a little more good, every day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  PILLARS / MISSION  =========================== -->
+<section id="mission">
+  <div class="pillars-section">
+    <div class="section-label">What we believe</div>
+    <h2 class="section-title">Three things we hold to be <span class="em">true.</span></h2>
+    <div class="pillars-deck">
+      <div class="pillar">
+        <div class="num">01 — Story</div>
+        <h3>Good news is <span class="em">worth telling.</span></h3>
+        <p>The internet has a bias for outrage. We have a bias for hope. Every post is a small act of resistance against a steady drip of bad news.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02 — Community</div>
+        <h3>The audience is the <span class="em">project.</span></h3>
+        <p>Five million people don't follow us for memes alone. They follow us because they want to feel the way the world feels when it's at its best. We curate, they amplify.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03 — Impact</div>
+        <h3>Words can lead to <span class="em">action.</span></h3>
+        <p>As a 501(c)(3), we don't just talk about good — we fund it. We partner with non-profits, spotlight grassroots work, and turn attention into measurable support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  INSTAGRAM FEED  =========================== -->
+<section class="section" id="feed">
+  <div class="wrap">
+    <div class="feed-head">
+      <div>
+        <div class="section-label">Latest on Instagram</div>
+        <h2 class="section-title">Fresh from <span class="em">@allthingsgood.</span></h2>
+      </div>
+      <div class="right">
+        <span class="mono">@allthingsgood &middot; Updated daily</span>
+        <a class="btn btn-ghost" href="https://instagram.com" target="_blank" rel="noopener">View all posts</a>
+      </div>
+    </div>
+
+    <!--
+      INSTAGRAM FEED MOUNT POINT
+      -------------------------------------------------
+      The .ig-feed div below is where the third-party
+      Instagram plugin (e.g. EmbedSocial, SnapWidget,
+      Behold, Curator, etc.) should render the live feed
+      at deploy time. The .ig-card elements inside are
+      placeholders that will be replaced or hidden once
+      real posts load.
+    -->
+    <div class="ig-feed ig-grid" data-instagram-handle="allthingsgood" data-feed-limit="8">
+      <div class="ig-card alt-0">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">“The neighbor who shovels four driveways, no questions asked.”</div>
+          <div class="meta">Post 01 · 2d ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-1">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">Kid raises $4k for the local food bank with a lemonade stand.</div>
+          <div class="meta">Post 02 · 3d ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-2">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">“She returned the wallet. Cash and all. Walked away smiling.”</div>
+          <div class="meta">Post 03 · 5d ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-3">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">A teacher's note that landed exactly when it needed to.</div>
+          <div class="meta">Post 04 · 1w ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-2">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">“He drove three hours just to make sure his dog could see the ocean.”</div>
+          <div class="meta">Post 05 · 1w ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-1">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">Strangers held an umbrella over a delivery driver during the storm.</div>
+          <div class="meta">Post 06 · 2w ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-0">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">“My grandma's first FaceTime. She wouldn't stop waving.”</div>
+          <div class="meta">Post 07 · 2w ago</div>
+        </div>
+      </div>
+      <div class="ig-card alt-3">
+        <svg class="ig-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <div class="ph">
+          <div class="quote">Adopted at 14 — and the smile told the whole story.</div>
+          <div class="meta">Post 08 · 3w ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feed-note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      Placeholder cards above. Live Instagram feed will load here once the social plugin is connected on Vercel.
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  CTA  =========================== -->
+<section class="cta">
+    <div class="float-icon-2">
+    <svg viewBox="0 0 113 104" aria-hidden="true">
+      <g fill="#FFF9EC" fill-rule="nonzero">
+        <path d="M11.3235888,59.7185548 L25.2449276,65.6278125 C21.800024,73.7434969 25.5864399,83.1152052 33.7021243,86.5601089 C41.6778831,89.9456176 50.8667281,86.347013 54.4509873,78.5188133 L54.6344207,78.1029122 L68.5557595,84.0121699 C61.8472629,99.8163975 43.5970941,107.189944 27.7928666,100.481448 C12.1623119,93.8466709 4.77816626,75.9224912 11.1075236,60.2404408 L11.3235888,59.7185548 Z"/>
+        <path d="M84.022746,24.9323745 C88.6985999,24.9323745 92.7592099,25.7576186 96.204576,27.4081068 C99.649942,29.0585949 102.510826,31.1828344 104.787229,33.780825 C107.063631,36.3788157 108.770933,39.2824523 109.909135,42.4917349 C111.047336,45.7010174 111.616437,48.8644531 111.616437,51.9820419 C111.616437,55.0996307 111.047336,58.2630664 109.909135,61.4723489 C108.770933,64.6816315 107.063631,67.5852681 104.787229,70.1832588 C102.510826,72.7812494 99.649942,74.9054889 96.204576,76.555977 C92.7592099,78.2064652 88.6985999,79.0317093 84.022746,79.0317093 C79.3468921,79.0317093 75.2862821,78.2064652 71.840916,76.555977 C68.39555,74.9054889 65.5346657,72.7812494 63.2582631,70.1832588 C60.9818605,67.5852681 59.2745586,64.6816315 58.1363573,61.4723489 C56.998156,58.2630664 56.4290554,55.0996307 56.4290554,51.9820419 C56.4290554,48.8644531 56.998156,45.7010174 58.1363573,42.4917349 C59.2745586,39.2824523 60.9818605,36.3788157 63.2582631,33.780825 C65.5346657,31.1828344 68.39555,29.0585949 71.840916,27.4081068 C75.2862821,25.7576186 79.3468921,24.9323745 84.022746,24.9323745 Z M84.022746,39.1449116 C82.3615874,39.1449116 80.7927153,39.4658399 79.3161299,40.1076964 C77.8395444,40.7495529 76.5321511,41.6359262 75.3939498,42.7668162 C74.2557485,43.8977063 73.3636448,45.2578308 72.7176386,46.8471898 C72.0716325,48.4365488 71.7486294,50.1481661 71.7486294,51.9820419 C71.7486294,53.8159177 72.0716325,55.527535 72.7176386,57.116894 C73.3636448,58.706253 74.2557485,60.0663775 75.3939498,61.1972676 C76.5321511,62.3281576 77.8395444,63.2145309 79.3161299,63.8563874 C80.7927153,64.4982439 82.3615874,64.8191722 84.022746,64.8191722 C85.6839047,64.8191722 87.2527768,64.4982439 88.7293622,63.8563874 C90.2059477,63.2145309 91.5133409,62.3281576 92.6515422,61.1972676 C93.7897435,60.0663775 94.6818472,58.706253 95.3278534,57.116894 C95.9738595,55.527535 96.2968626,53.8159177 96.2968626,51.9820419 C96.2968626,50.1481661 95.9738595,48.4365488 95.3278534,46.8471898 C94.6818472,45.2578308 93.7897435,43.8977063 92.6515422,42.7668162 C91.5133409,41.6359262 90.2059477,40.7495529 88.7293622,40.1076964 C87.2527768,39.4658399 85.6839047,39.1449116 84.022746,39.1449116 Z"/>
+        <path d="M28.9974678,0.0149313636 C33.6733218,0.0149313636 37.7339317,0.840175427 41.1792978,2.49066358 C44.6246639,4.14115174 47.4855481,6.26539124 49.7619508,8.86338181 C52.0383534,11.4613724 53.7456553,14.3650091 54.8838565,17.5742916 C56.0220578,20.7835742 56.5911584,23.9470099 56.5911584,27.0645987 C56.5911584,30.1821875 56.0220578,33.3456232 54.8838565,36.5549057 C53.7456553,39.7641883 52.0383534,42.6678249 49.7619508,45.2658156 C47.4855481,47.8638062 44.6246639,49.9880457 41.1792978,51.6385338 C37.7339317,53.288022 33.6733218,54.1142661 28.9974678,54.1142661 C24.321614,54.1142661 20.260804,53.288022 16.8154379,51.6385338 C13.3700718,49.9880457 10.5091874,47.8638062 8.23278484,45.2658156 C5.95638222,42.6678249 4.2490803,39.7641883 3.11087901,36.5549057 C1.97267771,33.3456232 1.40347713,30.1821875 1.40347713,27.0645987 C1.40347713,23.9470099 1.97267771,20.7835742 3.11087901,17.5742916 C4.2490803,14.3650091 5.95638222,11.4613724 8.23278484,8.86338181 C10.5091874,6.26539124 13.3700718,4.14115174 16.8154379,2.49066358 C20.260804,0.840175427 24.321614,0.0149313636 28.9974678,0.0149313636 Z M28.9974678,14.2274684 C27.3363092,14.2274684 25.7674371,14.5483967 24.2908516,15.1902532 C22.8142662,15.8321097 21.5068729,16.718483 20.3686716,17.849373 C19.2304703,18.9802631 18.3383665,20.3403876 17.6923604,21.9297466 C17.0463542,23.5191056 16.7233512,25.2307229 16.7233512,27.0645987 C16.7233512,28.8984745 17.0463542,30.6100918 17.6923604,32.1994508 C18.3383665,33.7888098 19.2304703,35.1489343 20.3686716,36.2798244 C21.5068729,37.4107144 22.8142662,38.2970877 24.2908516,38.9389442 C25.7674371,39.5808007 27.3363092,39.901729 28.9974678,39.901729 C30.6586265,39.901729 32.2274986,39.5808007 33.704084,38.9389442 C35.1806694,38.2970877 36.4880627,37.4107144 37.626264,36.2798244 C38.7644653,35.1489343 39.656569,33.7888098 40.3025752,32.1994508 C40.9485814,30.6100918 41.2715844,28.8984745 41.2715844,27.0645987 C41.2715844,25.2307229 40.9485814,23.5191056 40.3025752,21.9297466 C39.656569,20.3403876 38.7644653,18.9802631 37.626264,17.849373 C36.4880627,16.718483 35.1806694,15.8321097 33.704084,15.1902532 C32.2274986,14.5483967 30.6586265,14.2274684 28.9974678,14.2274684 Z"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap" style="position: relative; z-index: 1;">
+    <div class="section-label" style="color: var(--cream-warm); justify-content: center;">Get involved</div>
+    <h2 class="section-title">Join five million people who choose <span class="em">good.</span></h2>
+    <p>Follow along, share what moves you, or support the foundation. Every bit of attention helps us put a little more good into the world.</p>
+    <div class="row">
+      <a class="btn btn-cream" href="https://instagram.com" target="_blank" rel="noopener">
+        Follow @allthingsgood
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-outline" href="#">Donate to the foundation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  FOOTER  =========================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-blurb">
+        <a class="logo-mark" href="#top" aria-label="All Things Good">
+          <img class="full-logo" src="assets/atg-logo-blue.png" alt="All Things Good" />
+        </a>
+        <p>A 501(c)(3) non-profit sharing uplifting stories with five million people each month. Headquartered everywhere good things happen.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#story">Our story</a></li>
+          <li><a href="#mission">What we believe</a></li>
+          <li><a href="#feed">Latest posts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com"   target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://youtube.com"  target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="mailto:hello@allthingsgood.org">Email us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">Press inquiries</a></li>
+          <li><a href="#">Partner with us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 All Things Good Foundation. A registered 501(c)(3) non-profit.</span>
+      <span class="mono">Made with <span style="color: var(--blue);">♥</span> for good things.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
