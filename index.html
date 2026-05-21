@@ -261,13 +261,13 @@
 
   /* Mobile photo mount — the same .hero-photos node is moved here by JS
      when the viewport drops below 980px, and shows under the CTA. */
-  /* Mobile photo mount — visible below the CTA on small viewports. */
+  /* Mobile photo mount — sits inside the hero, right under the CTA buttons on small viewports. */
   .hero-photos-mount-mobile { display: none; }
   @media (max-width: 980px) {
     .hero-photos-mount-mobile {
       display: block;
-      padding: 56px 24px 16px;
-      text-align: center;
+      margin: 40px 0 8px;
+      text-align: left;
     }
     .hero-photos-mount-mobile .mini-label {
       display: inline-block;
@@ -282,25 +282,26 @@
       position: static;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       gap: 14px;
       width: auto;
       height: auto;
-      margin: 0 auto;
+      margin: 0;
     }
     .hero-photos-mount-mobile .hp {
       position: static;
       top: auto; left: auto; right: auto;
     }
-    .hero-photos-mount-mobile .hp-1 { width: 150px; height: 190px; transform: rotate(-4deg); }
-    .hero-photos-mount-mobile .hp-2 { width: 130px; height: 160px; transform: rotate(5deg); }
-    .hero-photos-mount-mobile .hp-3 { width: 110px; height: 110px; transform: rotate(-8deg); }
+    .hero-photos-mount-mobile .hp-1 { width: 138px; height: 174px; transform: rotate(-4deg); }
+    .hero-photos-mount-mobile .hp-2 { width: 120px; height: 150px; transform: rotate(5deg); }
+    .hero-photos-mount-mobile .hp-3 { width: 100px; height: 100px; transform: rotate(-8deg); }
   }
   @media (max-width: 420px) {
-    .hero-photos-mount-mobile .hp-1 { width: 120px; height: 150px; }
-    .hero-photos-mount-mobile .hp-2 { width: 100px; height: 130px; }
-    .hero-photos-mount-mobile .hp-3 { width: 90px;  height: 90px; }
+    .hero-photos-mount-mobile { margin: 32px 0 4px; }
+    .hero-photos-mount-mobile .hp-1 { width: 116px; height: 144px; }
+    .hero-photos-mount-mobile .hp-2 { width: 100px; height: 124px; }
+    .hero-photos-mount-mobile .hp-3 { width: 88px;  height: 88px; }
   }
 
   /* Stats strip */
@@ -1134,15 +1135,6 @@
   </div>
 </section>
 
-<!-- Mobile-only photo strip: hidden on desktop via CSS; visible below the CTA on small screens -->
-<div class="hero-photos-mount-mobile">
-  <span class="mini-label">— The good crowd —</span>
-  <div class="hero-photos">
-    <img class="hp hp-1" src="assets/photos/hero-photo-1.webp" alt="A smiling moment" />
-    <img class="hp hp-2" src="assets/photos/hero-photo-2.webp" alt="A happy face" />
-    <img class="hp hp-3" src="assets/photos/hero-photo-3.webp" alt="A bright smile" />
-  </div>
-</div>
 
 <!-- ===========================  FOOTER  =========================== -->
 <footer>
